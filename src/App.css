@@ -44,7 +44,7 @@ body {
 
 .job:hover {
   cursor: pointer;
-  color: darkgrey;
+  color: #444444;
 }
 
 .job-company {
