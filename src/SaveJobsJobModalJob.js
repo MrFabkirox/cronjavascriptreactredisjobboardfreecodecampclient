@@ -84,3 +84,67 @@ export default function Jobs({jobs}) {
 
   )
 }
+_________________________________________________________________________
+import React from 'react';
+
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+export default function JobModal({job, open, handleClose}) {
+
+  if (!job.title) {
+    return <div />
+  }
+
+  return (
+    <div>
+      open={open}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Google help apps determine location. This means sending anonymous location data to
+            Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
+________________________________________________________________________
+import React from 'react';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
+export default function Job({job, onClick}) {
+  return (
+    <Paper onClick={onClick} className={'job'}>
+      <div>
+        <Typography variant='h6'>{job.title}</Typography>
+        <Typography variant='h5'>{job.company}</Typography>
+        <Typography variant='h5'>{job.location}</Typography>
+      </div>
+      <div>
+        <Typography variant='h5'>{job.created_at.split(' ').slice(0,3).join(' ')}</Typography>
+      </div>
+    </Paper>
+
+  )
+}
