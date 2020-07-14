@@ -47,6 +47,11 @@ body {
   color: #444444;
 }
 
+.detail-log {
+  height: 30px;
+  float: right;
+}
+
 .job-company {
   padding: 0 30px;
 }

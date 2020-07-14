@@ -42,7 +42,7 @@ export default function Jobs({jobs}) {
   return (
     // trick to keep benefits of h1 for seo
     <div className="jobs">
-      <JobModal open={open} job={selectedJob} handleClose{handleClose} />
+      <JobModal open={open} job={selectedJob} handleClose={handleClose} />
       <Typography variant="h4" component="h1">
         Entry Level Software Jobs
       </Typography>
